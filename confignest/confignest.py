@@ -58,7 +58,8 @@ class BaseConfig:
         the new value. If new_config includes new key/value pairs, they
         will be added to the existing config.
         """
-        new_config = yaml.load(open(new_config, 'r'), Loader = yaml.SafeLoader)
+        with open(new_config, 'r') as stream:
+            new_config = yaml.load(stream, Loader = yaml.SafeLoader)
         self.config = self.merge_dicts(self.config, new_config)
         self.__dict__.update(self.config)
         

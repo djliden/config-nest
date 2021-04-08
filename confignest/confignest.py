@@ -111,7 +111,8 @@ class Config(BaseConfig):
         if path:
             stream = open(path, 'w')
             yaml.dump(self.config, stream)
-        print(yaml.dump(self.config, Dumper=yaml.SafeDumper))
+        else:
+            print(yaml.dump(self.config, Dumper=yaml.SafeDumper))
         
     def __repr__(self):
         return f'Config Object with Keys:\n{yaml.dump(self.config, Dumper=yaml.SafeDumper)}'

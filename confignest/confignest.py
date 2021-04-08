@@ -109,8 +109,8 @@ class Config(BaseConfig):
         * path (default None):  if non-null, path to which to save output
         """
         if path:
-            stream = open(path, 'w')
-            yaml.dump(self.config, stream)
+            #stream = open(path, 'w')
+            yaml.dump(self.config, path)
         else:
             print(yaml.dump(self.config, Dumper=yaml.SafeDumper))
         
